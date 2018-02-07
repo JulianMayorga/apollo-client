@@ -740,6 +740,7 @@ export class QueryManager<TStore> {
       previousResult,
       callback: (newData: ApolloQueryResult<any>) => {
         this.setQuery(queryId, () => ({ invalidated: true, newData }));
+        this.broadcastQueries();
       },
     });
   }
